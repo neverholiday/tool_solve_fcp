@@ -1,6 +1,6 @@
-# Project Title
+# Tool for solving facility layout problem
 
-Tool for solving facility layout problem
+This project use Genetics Algorithm and Backtrack Search Algorithm to solve problem
 
 ## Authors
 
