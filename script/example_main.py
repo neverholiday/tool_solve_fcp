@@ -201,7 +201,7 @@ if __name__ == "__main__":
 
 	print "Parent A : {}, Parent B : {}".format( len( poolMate[0] ), len( poolMate[1] ) )
 
-	x = breed( poolMate[0], poolMate[1])
+	x = breed( poolMate[0], poolMate[1] )
 
 	print "Children : {}".format( len( x ) )
 
