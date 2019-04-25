@@ -178,7 +178,7 @@ def geneticAlgorithm(population, popSize, eliteSize, mutationRate, generations):
 
 if __name__ == "__main__":
 
-	random.seed(1)
+	random.seed(0)
 	
 	cityList = list()
 
@@ -187,23 +187,23 @@ if __name__ == "__main__":
 
 	population = initialPopulation( 100, cityList )
 
-	#	ranking
-	popRanked = rankRoutes( population )
-
-	#	Selection
-	selectionResults = selectionParent( popRanked, 20 )
-
-	#	Mating pools
-	poolMate = matingPool(population, selectionResults)
-	
-	#	Make a children
-	children = breedPopulation(poolMate, 20)
-
-	print "Parent A : {}, Parent B : {}".format( len( poolMate[0] ), len( poolMate[1] ) )
-
-	x = breed( poolMate[0], poolMate[1] )
-
-	print "Children : {}".format( len( x ) )
+	##	ranking
+#	popRanked = rankRoutes( population )
+#
+#	#	Selection
+#	selectionResults = selectionParent( popRanked, 20 )
+#
+#	#	Mating pools
+#	poolMate = matingPool(population, selectionResults)
+#	
+#	#	Make a children
+#	children = breedPopulation(poolMate, 20)
+#
+#	print "Parent A : {}, Parent B : {}".format( len( poolMate[0] ), len( poolMate[1] ) )
+#
+#	x = breed( poolMate[0], poolMate[1] )
+#
+#	print "Children : {}".format( len( x ) )
 
 	# print children
 
@@ -229,21 +229,21 @@ if __name__ == "__main__":
 	# print x.routeFitness()
 	# print 1/ x.routeDistance()
 
-	# bestRoute = geneticAlgorithm(population=cityList, popSize=100, eliteSize=20, mutationRate=0.01, generations=500)
+	bestRoute = geneticAlgorithm(population=cityList, popSize=100, eliteSize=20, mutationRate=0.01, generations=500)
 
-	# plotList = [ cityList, bestRoute ]
+	plotList = [ cityList, bestRoute ]
 
-	# fig, axes = plt.subplots( nrows=1, ncols=2 )
-	
-	# for i, ax in enumerate( axes ):
-	# 	for j in xrange( len(plotList[i]) ):
-	# 		if j > 0:
-	# 			xSegment = ( plotList[i][j-1].x, plotList[i][j].x )
-	# 			ySegment = ( plotList[i][j-1].y, plotList[i][j].y )
-	# 			ax.plot( xSegment, ySegment )
-	# 		ax.scatter( plotList[i][j].x, plotList[i][j].y )
+	fig, axes = plt.subplots( nrows=1, ncols=2 )
 
-	# plt.show()
+	for i, ax in enumerate( axes ):
+		for j in xrange( len(plotList[i]) ):
+			if j > 0:
+				xSegment = ( plotList[i][j-1].x, plotList[i][j].x )
+				ySegment = ( plotList[i][j-1].y, plotList[i][j].y )
+				ax.plot( xSegment, ySegment )
+				ax.scatter( plotList[i][j].x, plotList[i][j].y )
+
+	plt.show()
 	# for row in ax:
 	# 	for idx, col in enumerate( row ):
 	# 		col.plot( x[idx] )
